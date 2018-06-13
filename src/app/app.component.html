@@ -1,0 +1,104 @@
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+-->
+
+<section *ngIf="showModels" [class.dark-theme]="isDarkTheme" 
+     class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+  <!-- toolbar -->
+  <md-toolbar color="primary" class="mat-elevation-z7">
+    <span>
+      <md-icon class="mat-icon-20">favorite</md-icon>
+      <span>Models</span>
+    </span>
+  <button md-button (click)="navigateAsyn()" >Async Pipe
+    </button>
+    <button md-button (click)="switchMap()" >switchMap
+    </button>
+    <button md-button (click)="mergeMap()" >mergeMap
+    </button>
+  </md-toolbar>
+  
+  <md-sidenav-container fxFlex>
+    <!-- sidenav -->
+    <md-sidenav align="end" mode="side" #sidenav class="mat-elevation-z6">
+      <md-tab-group>
+        <md-tab label="About Me">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <md-card>
+              <md-card-title>Name</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel?.name}}</p>
+              </md-card-content>
+            </md-card>
+            <md-card>
+              <md-card-title>Status</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel?.status}}</p>
+              </md-card-content>
+            </md-card>
+            <md-card>
+              <md-card-title>About</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel?.about}}</p>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div class="tab-action">
+            <button md-fab (click)="sidenav.close()" color="warning">
+              <md-icon>close</md-icon>
+            </button>
+          </div>
+        </md-tab>
+        <md-tab label="Messages">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <md-card *ngFor="let message of selectedModel?.messages">
+              <md-card-subtitle>{{message.who}} says:</md-card-subtitle>
+              <md-card-content>{{message.message}}</md-card-content>
+            </md-card>
+          </div>
+
+          <div class="tab-action">
+            <div class="flex-container" fxLayout="column" fxLayoutAlign="space-between center">
+              <button md-mini-fab (click)="sidenav.close()" color="warning">
+                <md-icon>close</md-icon>
+              </button>
+              <button md-fab (click)="addMessage()" color="primary">
+                <md-icon>add</md-icon>
+              </button>
+            </div>
+          </div>
+        </md-tab>
+        <!-- <md-tab label="Photos">
+          some photos here...
+        </md-tab> -->
+      </md-tab-group>
+    </md-sidenav>
+
+    <!-- main content -->
+    <md-grid-list cols="4" rowHeight="250px">
+      <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
+        <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}">
+        <md-grid-tile-footer>
+          <h3 md-line>{{model.name}}</h3>
+          <span md-line>{{model.status}}</span>
+          <button md-icon-button (click)="showModelDetails(model)">
+            <md-icon>info</md-icon>
+          </button>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-sidenav-container>
+</section>
+<div >
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+-->
+            

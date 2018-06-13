@@ -1,0 +1,71 @@
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+                    
+
+/* You can add global styles to this file, and also import other style files */
+
+// Material Design Theme
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+// Resets
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+// app shell
+.app {
+    height: 100vh; // view port height units
+}
+
+/* Icons */
+.mat-icon-20 {
+    font-size: 20px;
+}
+
+.tab-action{
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    button{
+        margin-bottom: 12px;
+    }
+}
+
+/* Cards */
+md-card {
+    margin: 20px;
+}
+
+/* Tooblar */
+md-toolbar{
+    z-index: 10;
+}
+md-toolbar-row {
+    justify-content: space-between; // this is based on flex
+}
+
+/* Sidenav */
+md-sidenav {
+    width: 40vw;
+}
+
+/* Tabs */
+.mat-tab-body-content {
+    height: calc(100vh - 64px - 48px);
+}
+
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+            
