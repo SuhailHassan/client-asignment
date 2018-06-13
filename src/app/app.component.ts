@@ -63,6 +63,11 @@ export class AppComponent implements OnInit {
     this.showModels = false;
     this._router.navigate(['/mergeMap']);
   }
+  infiniteScroll() {
+    console.log("navigatingto infiniteScroll...");
+    this.showModels = false;
+    this._router.navigate(['/infiniteScroll']);
+  }
 
 }
 

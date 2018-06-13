@@ -20,7 +20,9 @@ import { routing } from './routing';
 import { ReactiveFormswithSearchComponent } from './reactive-formswith-search/reactive-formswith-search.component';
 // import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { MergeMapComponent } from './merge-map/merge-map.component';
+import { LazyLoadingonScrollComponent } from './lazy-loadingon-scroll/lazy-loadingon-scroll.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
     AsynchronousPipeComponent,
     ReactiveFormswithSearchComponent,
     MergeMapComponent,
+    LazyLoadingonScrollComponent,
     
   ],
   entryComponents: [
@@ -40,6 +43,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
   ],
   imports: [
     BrowserModule,
+    InfiniteScrollModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
