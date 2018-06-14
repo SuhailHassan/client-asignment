@@ -3,6 +3,8 @@ import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef } from '@angular/mater
 import { Model, Message } from './model';
 import { ModelsService } from './models.service';
 import { RouterModule, Routes, Router } from '@angular/router';
+import { InfiniteScroll } from 'angular2-infinite-scroll';
+import { HostListener} from "@angular/core";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MdSidenav;
+  @HostListener("window:scroll", [])
   models: Model[];
   selectedModel: Model;
   isDarkTheme: boolean = false;
@@ -67,6 +70,10 @@ export class AppComponent implements OnInit {
     console.log("navigatingto infiniteScroll...");
     this.showModels = false;
     this._router.navigate(['/infiniteScroll']);
+  }
+  goDown() {
+    debugger;
+    console.log("scrolled");
   }
 
 }

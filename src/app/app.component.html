@@ -74,9 +74,9 @@
     </md-sidenav>
 
     <!-- main content -->
-    <md-grid-list cols="4" rowHeight="250px">
+    <md-grid-list cols="4" class="search-results" infinite-scroll [infiniteScrollDistance]="4" [infiniteScrollThrottle]="50" (scrolled)="goDown()">
       <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
-        <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}">
+        <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}" style="height:32rem">
         <md-grid-tile-footer>
           <h3 md-line>{{model.name}}</h3>
           <span md-line>{{model.status}}</span>

@@ -1,14 +1,4 @@
-<div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"
-(scrolled)="onScrollDown()">
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
-  <p>Scroll</p>
+<div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"  [scrollWindow]="false" (scrolled)="scrollDown()">
+  <p *ngFor="let count of counts">Scroll {{count}}</p>
 
 </div>
