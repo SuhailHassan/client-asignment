@@ -3,8 +3,6 @@ import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef } from '@angular/mater
 import { Model, Message } from './model';
 import { ModelsService } from './models.service';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { InfiniteScroll } from 'angular2-infinite-scroll';
-import { HostListener} from "@angular/core";
 
 @Component({
   selector: 'app-root',
@@ -13,11 +11,11 @@ import { HostListener} from "@angular/core";
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MdSidenav;
-  @HostListener("window:scroll", [])
   models: Model[];
   selectedModel: Model;
   isDarkTheme: boolean = false;
   showModels : boolean = true;
+  newCount = ["hello","world","new","message","down","checking","doit","nginit"];
 
   constructor(private dialog: MdDialog,
               private vcr: ViewContainerRef,
@@ -71,9 +69,15 @@ export class AppComponent implements OnInit {
     this.showModels = false;
     this._router.navigate(['/infiniteScroll']);
   }
-  goDown() {
+  scrollDown(){
     debugger;
     console.log("scrolled");
+    this.newCount.push("new messagee");
+    this.models.push({ name: "Virat", status: "Captain and batsman", about: "I'm the captian and right-handed batsamn", messages: [], rows: 1, cols:1});
+    this.models.push({ name: "Dhoni", status: "Wicketkeeper", about: "I'm athe wicket keeper and batsman", messages: [], rows: 1, cols:1 });
+    this.models.push(  { name: "Jadeja", status: "Batsman", about: "I'm a left-handed batsman", messages: [], rows: 1 , cols:1});
+    this.models.push({ name: "Ashwin", status: "Bowler", about: "I'm a right-handed spinner", messages: [], rows: 1, cols:1});
+    this.models.push({ name: "Sachin", status: "Batsman", about: "I'm a right-handed batsman", messages: [], rows: 1, cols:1});
   }
 
 }

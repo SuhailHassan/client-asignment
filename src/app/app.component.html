@@ -1,22 +1,20 @@
-
-<section *ngIf="showModels" [class.dark-theme]="isDarkTheme" 
-     class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+<section *ngIf="showModels" [class.dark-theme]="isDarkTheme" class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
   <!-- toolbar -->
   <md-toolbar color="primary" class="mat-elevation-z7">
     <span>
       <md-icon class="mat-icon-20">favorite</md-icon>
       <span> Cricket Models</span>
     </span>
-  <button md-button (click)="navigateAsyn()" >Async Pipe
+    <button md-button (click)="navigateAsyn()">Async Pipe
     </button>
-    <button md-button (click)="switchMap()" >switchMap
+    <button md-button (click)="switchMap()">switchMap
     </button>
-    <button md-button (click)="mergeMap()" >mergeMap
+    <button md-button (click)="mergeMap()">mergeMap
     </button>
-    <button md-button (click)="infiniteScroll()" >infiniteScroll
-      </button>
+    <button md-button (click)="infiniteScroll()">infiniteScroll
+    </button>
   </md-toolbar>
-  
+
   <md-sidenav-container fxFlex>
     <!-- sidenav -->
     <md-sidenav align="end" mode="side" #sidenav class="mat-elevation-z6">
@@ -74,21 +72,23 @@
     </md-sidenav>
 
     <!-- main content -->
-    <md-grid-list cols="4" class="search-results" infinite-scroll [infiniteScrollDistance]="4" [infiniteScrollThrottle]="50" (scrolled)="goDown()">
-      <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
-        <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}" style="height:32rem">
-        <md-grid-tile-footer>
-          <h3 md-line>{{model.name}}</h3>
-          <span md-line>{{model.status}}</span>
-          <button md-icon-button (click)="showModelDetails(model)">
-            <md-icon>info</md-icon>
-          </button>
-        </md-grid-tile-footer>
-      </md-grid-tile>
-    </md-grid-list>
+    <div class="search-results" infinite-scroll [infiniteScrollDistance]="1.5" [infiniteScrollThrottle]="50" [scrollWindow]="false"
+      (scrolled)="scrollDown()">
+      <md-grid-list cols="4" rowHeight="250px">
+        <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
+          <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}" style="height:32rem;">
+          <md-grid-tile-footer>
+            <h3 md-line>{{model.name}}</h3>
+            <span md-line>{{model.status}}</span>
+            <button md-icon-button (click)="showModelDetails(model)">
+              <md-icon>info</md-icon>
+            </button>
+          </md-grid-tile-footer>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
   </md-sidenav-container>
 </section>
-<div >
+<div>
   <router-outlet></router-outlet>
 </div>
-      
